@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Streets for Everyone — WestCycle</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <a href="https://www.westcycle.org.au" class="top-bar-brand">
+        <span class="brand-west">WEST</span
+        ><span class="brand-cycle">CYCLE</span>
+        <span class="brand-divider">/</span>
+        <span class="brand-sub">Streets for Everyone</span>
+      </a>
+      <nav>
+        <a href="#vision">The vision</a>
+        <a href="#actions">Council actions</a>
+        <a href="#speeds">Safer speeds</a>
+        <a href="#map">Explore the data</a>
+      </nav>
+    </div>
+
+    <!-- ════ 1. HERO ════ -->
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="hero-label">WestCycle Active Transport Advocacy</div>
+        <h1>STREETS FOR<br /><span class="hero-highlight">EVERYONE</span></h1>
+        <p class="hero-sub">
+          Every local government in Western Australia has the power to make its
+          streets safer and more inviting for people who walk and ride — without
+          waiting for state funding or major capital works.
+        </p>
+        <div class="hero-cta">
+          <a href="#map" class="btn btn-primary">Explore your area ↓</a>
+          <a href="#actions" class="btn btn-outline">What councils can do</a>
+        </div>
+        <div class="hero-stat-row">
+          <div class="hero-stat">
+            <div class="hero-stat-num">9</div>
+            <div class="hero-stat-desc">
+              Low-cost actions every council can deliver right now
+            </div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">$0</div>
+            <div class="hero-stat-desc">State or federal funding required</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">50%</div>
+            <div class="hero-stat-desc">
+              of Perth children driven to school despite living less than 1 km
+              away
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ 2. VISION ════ -->
+    <section class="vision-section" id="vision">
+      <div class="section-wrap">
+        <p class="section-label">Our vision for active transport</p>
+        <h2 class="section-title">WHAT IF OUR STREETS WORKED FOR EVERYONE?</h2>
+        <p class="section-intro">
+          WestCycle's vision is for everyone to have the option to use active
+          transport for their daily journeys, because more people walking and
+          riding benefits the whole community. The
+          <a href="https://www.healthystreets.com" target="_blank"
+            >Healthy Streets</a
+          >
+          framework gives us a way to measure whether our streets are working
+          for people.
+        </p>
+
+        <div class="indicator-grid">
+          <div class="indicator">
+            <div class="indicator-icon">🤝</div>
+            <h3>Everyone feels welcome</h3>
+            <p>
+              Streets are for everyone, no matter their age, ability, gender, or
+              background. When people of all ages and abilities feel comfortable
+              on a street, we know we're getting it right.
+            </p>
+          </div>
+          <div class="indicator">
+            <div class="indicator-icon">🛡️</div>
+            <h3>People feel safe</h3>
+            <p>
+              Traffic on local streets travels at low speeds and in low volumes.
+              Streets are well lit and well maintained. People don't feel
+              intimidated by motor vehicles.
+            </p>
+          </div>
+          <div class="indicator">
+            <div class="indicator-icon">🚶</div>
+            <h3>Easy to cross</h3>
+            <p>
+              Safe crossings, pram ramps, and median refuges make it easy for
+              everyone to get where they're going directly and quickly. When
+              streets are hard to cross, communities are cut in two.
+            </p>
+          </div>
+          <div class="indicator">
+            <div class="indicator-icon">🌳</div>
+            <h3>Shade and shelter</h3>
+            <p>
+              Trees, awnings, and shade structures protect people from WA's sun
+              and heat, and provide shelter from wind and rain. Without shade,
+              walking and riding are only viable for part of the day and part of
+              the year.
+            </p>
+          </div>
+          <div class="indicator">
+            <div class="indicator-icon">🪑</div>
+            <h3>Places to stop and rest</h3>
+            <p>
+              Seating, drink fountains, and rest stops along key routes mean
+              that everyone — including older people, people with disabilities,
+              and families with young children — can use the street comfortably.
+            </p>
+          </div>
+          <div class="indicator">
+            <div class="indicator-icon">🔇</div>
+            <h3>Not too noisy</h3>
+            <p>
+              Noise from motor traffic affects our health, makes streets
+              stressful, and discourages people from spending time outside.
+              Lower speeds and less through-traffic make streets quieter and
+              more pleasant.
+            </p>
+          </div>
+          <div class="indicator">
+            <div class="indicator-icon">🌬️</div>
+            <h3>Clean air</h3>
+            <p>
+              Less motorised traffic means less pollution and healthier
+              neighbourhoods. Streets where people choose to walk and ride have
+              better air quality for everyone, including the people who live on
+              them.
+            </p>
+          </div>
+          <div class="indicator">
+            <div class="indicator-icon">🏪</div>
+            <h3>Things to see and do</h3>
+            <p>
+              Active, interesting streetscapes with shopfronts, greenery, and
+              community life make walking and riding enjoyable, not just
+              functional. Blank walls, empty lots, and car parks make streets
+              feel hostile.
+            </p>
+          </div>
+          <div class="indicator">
+            <div class="indicator-icon">😌</div>
+            <h3>People feel relaxed</h3>
+            <p>
+              People are more likely to walk, ride, and spend time on streets
+              where they feel relaxed rather than stressed. This comes from the
+              combination of all the other indicators.
+            </p>
+          </div>
+          <div class="indicator">
+            <div class="indicator-icon">🚴</div>
+            <h3>People choose to walk, ride, and use public transport</h3>
+            <p>
+              When streets meet all of the above needs, people choose active
+              transport because it's the most attractive option — not because
+              they have no alternative.
+            </p>
+          </div>
+        </div>
+
+        <p class="vision-closing">
+          When streets meet these needs, everyone has the option of walking or
+          riding. That benefits everyone — including the people who still need
+          to drive.
+        </p>
+
+        <p class="vision-source">
+          The 10 Healthy Streets Indicators were developed by
+          <a href="https://www.healthystreets.com" target="_blank"
+            >Lucy Saunders</a
+          >.
+        </p>
+
+        <!-- Broader vision block -->
+        <div class="broader-vision">
+          <h3>OUR BROADER VISION</h3>
+          <p>
+            WestCycle's Active Transport Vision goes further, imagining a
+            Western Australia where:
+          </p>
+          <div class="broader-vision-grid">
+            <div class="broader-vision-item">
+              <strong>Everything people need day-to-day is close by</strong>
+              <p>
+                Homes, shops, schools, health centres, and parks are all within
+                easy walking or riding distance.
+              </p>
+            </div>
+            <div class="broader-vision-item">
+              <strong>It's easy to connect with the train or bus</strong>
+              <p>
+                Stations are always an easy ride away, with bikes and scooters
+                accommodated on public transport and secure parking available.
+              </p>
+            </div>
+            <div class="broader-vision-item">
+              <strong>Safe and convenient places to park your bike</strong>
+              <p>
+                Every journey by bike or e-rideable ends with safe, secure,
+                convenient parking close to the destination.
+              </p>
+            </div>
+            <div class="broader-vision-item">
+              <strong>It's easy to connect with nature</strong>
+              <p>
+                The network of paths gives everyone easy access to parks,
+                reserves, and beaches. Street trees support shade, biodiversity,
+                and urban cooling.
+              </p>
+            </div>
+          </div>
+          <p class="broader-vision-link">
+            Read the full vision:
+            <a href="https://westcycle.org.au/activetransport" target="_blank"
+              >westcycle.org.au/activetransport</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ 3. ACTIONS ════ -->
+    <section class="actions-section" id="actions">
+      <div class="section-wrap">
+        <p class="section-label">Small steps, big impact</p>
+        <h2 class="section-title">
+          LOW-COST ACTIONS EVERY COUNCIL CAN DELIVER TODAY
+        </h2>
+        <p class="section-intro">
+          Backed by national and international design guidance, and proven to
+          work in Australian cities and around the world, these actions can be
+          delivered within existing council budgets and operational programs —
+          in weeks, not years. No state funding. No involvement from Main Roads.
+          Just better priorities within work councils are already doing.
+        </p>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-icon">🚧</div>
+            <h3>Modal filters</h3>
+            <p>
+              Stop rat-running traffic with bollards or planter boxes that block
+              cars but let people on foot and on bikes pass freely. Streets
+              become quieter and residents reclaim their neighbourhood. Proven
+              to reduce traffic volumes on filtered streets by 56–61%.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">↩️</div>
+            <h3>Tighter corner radii</h3>
+            <p>
+              Wide, sweeping corners let drivers turn at speed. Tighter corners
+              force them to slow down, shorten crossing distances, and make
+              pedestrians more visible. Where full kerb reconstruction isn't
+              feasible, interim treatments like planter boxes or painted
+              extensions work now.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🧹</div>
+            <h3>Clear footpaths</h3>
+            <p>
+              Keep bins off footpaths on collection day. Fix cracked and uneven
+              surfaces on high-use routes near schools, shops, and public
+              transport stops. Fill missing links where footpaths simply stop,
+              forcing people onto the road.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🚸</div>
+            <h3>Safe crossings</h3>
+            <p>
+              Retrofit pram ramps at every intersection. Add median cut-throughs
+              on wide roads so pedestrians can pause safely halfway. Install
+              pop-up zebra crossings at the places where people are already
+              crossing — especially near schools, parks, and shops.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🏫</div>
+            <h3>Safer school routes</h3>
+            <p>
+              Over the past 40 years, national rates of active travel to school
+              have dropped from 75% to 25%. In Perth, it's as low as 20% — and
+              half of children are driven to school despite living less than a
+              kilometre away. Councils can act now by auditing walking and
+              cycling routes within 800 metres of every primary school and
+              delivering pram ramps, raised crossings, no-stopping zones, and
+              short sections of new footpath. Consider school streets that close
+              roads to through-traffic at drop-off and pick-up.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🚲</div>
+            <h3>Pop-up bike lanes</h3>
+            <p>
+              Separated cycling facilities built quickly using paint, flexible
+              bollards, and planter boxes. A rapid, low-risk way to test demand
+              and deliver safety improvements while permanent designs are
+              developed. Sydney's pop-up network saw a 40% increase in cycling
+              trips.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🚰</div>
+            <h3>Bike parking, shade, and drink fountains</h3>
+            <p>
+              Bike hoops at shops, libraries, and parks. Drink fountains with
+              bottle-fill taps. Shade structures and street trees along key
+              routes. These small amenities signal that a place is designed for
+              people.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">💳</div>
+            <h3>Rebates and incentives</h3>
+            <p>
+              Rebates or vouchers for bikes, e-bikes, repairs, helmets, and
+              lights. Can be added to existing sustainability rebate programs.
+              The City of Holdfast Bay added e-bike rebates to their Green
+              Living program — the decision took minutes at a council meeting.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🗺️</div>
+            <h3>Wayfinding and route maps</h3>
+            <p>
+              Publish maps of recommended cycling routes highlighting
+              low-traffic streets, shared paths, and connections to schools,
+              stations, and town centres. Install wayfinding signage at decision
+              points. Work with local riders to identify routes and hazards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ 4. SAFER SPEEDS ════ -->
+    <section class="speeds-section" id="speeds">
+      <div class="section-wrap">
+        <p class="section-label">Our key ask</p>
+        <h2 class="section-title">MAKE 30 KM/H THE DEFAULT ON LOCAL STREETS</h2>
+        <p class="section-intro">
+          Many of the actions on this page are things councils can deliver on
+          their own. But on speed limits, the most effective action would come
+          from the state government: changing the default speed limit on local
+          streets from 50 km/h to 30 km/h, in one go, across all of WA.
+        </p>
+
+        <div class="speeds-content">
+          <div class="speeds-argument">
+            <h3>WHY A STATE-WIDE DEFAULT MATTERS</h3>
+            <p>
+              Right now, any council that wants safer speeds has to change them
+              one street at a time — a slow, expensive process requiring
+              individual traffic studies, signage, and approvals. With over
+              12,500 km of local streets still at the 50 km/h default, doing
+              this council by council would take decades. A state-wide default
+              change would be faster, cheaper, and more coherent — just as it
+              was in 1999.
+            </p>
+
+            <div class="callout-block">
+              <h4>WA HAS DONE THIS BEFORE</h4>
+              <p>
+                In 1999, the WA Government changed the default speed limit from
+                60 km/h to 50 km/h. The result: a
+                <strong>20% reduction in all crashes</strong> and a
+                <strong>51% reduction in pedestrian injuries</strong>. Lowering
+                the default again — from 50 to 30 — would deliver the same kind
+                of step change in safety.
+              </p>
+            </div>
+
+            <h3>PROGRESS SO FAR</h3>
+            <p>
+              Some councils are already leading the way. 71 WA local governments
+              have introduced 40 km/h zones on some of their streets (587 km
+              total), and 20 have 30 km/h streets (42 km total). These councils
+              deserve recognition for acting within a system that makes it
+              difficult. But 42 km of 30 km/h streets out of more than 12,500 km
+              shows why a state-wide default change is needed.
+            </p>
+
+            <h3>KEY EVIDENCE</h3>
+            <ul class="evidence-list">
+              <li>
+                A person hit at 30 km/h has a
+                <strong>90% chance of survival</strong>. At 50 km/h, that drops
+                to <strong>10%</strong>.
+              </li>
+              <li>
+                Hundreds of cities globally have achieved zero road deaths, with
+                30 km/h limits a key factor.
+              </li>
+              <li>
+                In Australia, areas of Sydney, Melbourne, Adelaide, and Perth
+                have already introduced 30 km/h limits with strong community
+                support.
+              </li>
+              <li>
+                A state-wide default change could prevent up to
+                <strong>3,443 crashes</strong> and save up to
+                <strong>7 lives</strong> every year.
+              </li>
+            </ul>
+          </div>
+
+          <div class="speeds-visual">
+            <div class="evidence-bars">
+              <div class="speed-bar">
+                <div class="speed-bar-pct green">90%</div>
+                <div
+                  class="speed-bar-fill"
+                  style="height: 180px; background: var(--go-green)"
+                ></div>
+                <div class="speed-bar-label">30 km/h</div>
+              </div>
+              <div class="speed-bar">
+                <div class="speed-bar-pct amber">50%</div>
+                <div
+                  class="speed-bar-fill"
+                  style="height: 100px; background: var(--sun-yellow)"
+                ></div>
+                <div class="speed-bar-label">40 km/h</div>
+              </div>
+              <div class="speed-bar">
+                <div class="speed-bar-pct red">10%</div>
+                <div
+                  class="speed-bar-fill"
+                  style="height: 20px; background: var(--racing-red)"
+                ></div>
+                <div class="speed-bar-label">50 km/h</div>
+              </div>
+            </div>
+            <p class="bar-caption">
+              Pedestrian chance of survival by impact speed
+            </p>
+
+            <div class="intl-stats">
+              <div class="intl-stat">
+                <div class="intl-stat-num">63%</div>
+                <div class="intl-stat-desc">
+                  fewer fatal injuries — Bristol, city-wide 30 km/h
+                </div>
+              </div>
+              <div class="intl-stat">
+                <div class="intl-stat-num">25%</div>
+                <div class="intl-stat-desc">
+                  fewer people killed or seriously injured — Wales, within 18
+                  months
+                </div>
+              </div>
+              <div class="intl-stat">
+                <div class="intl-stat-num">7%</div>
+                <div class="intl-stat-desc">
+                  lower fuel consumption — European systematic review
+                </div>
+              </div>
+              <div class="intl-stat">
+                <div class="intl-stat-num">~0</div>
+                <div class="intl-stat-desc">
+                  increase in travel times for cars
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="speeds-cta-text">
+          Even if the state government hasn't changed the default yet, you can
+          ask your local council to support the change. Use the map below to
+          explore crash data in your local government area, then email your
+          Mayor or Shire President.
+        </p>
+      </div>
+    </section>
+
+    <!-- ════ 5. MAP ════ -->
+    <section class="map-section" id="map">
+      <div class="section-wrap">
+        <p class="section-label">Explore the data</p>
+        <h2 class="section-title">
+          CRASHES ON WA STREETS BY LOCAL GOVERNMENT AREA
+        </h2>
+        <p class="section-intro">
+          Click on any local government area to see crash statistics for
+          2019–2023 and the proportion of streets with reduced speed limits.
+          Then email your Mayor or Shire President to ask them to support safer
+          streets.
+        </p>
+      </div>
+
+      <div class="map-container">
+        <div class="map-sidebar">
+          <div class="map-sidebar-controls">
+            <p class="controls-label">Showing</p>
+            <div class="dataset-desc">
+              Crashes involving people walking and riding on local roads,
+              2019–2023
+            </div>
+          </div>
+
+          <div class="layer-toggles">
+            <div class="layer-toggle-wrap">
+              <button class="speed-toggle" id="speed-toggle"></button>
+              <span>30/40 km/h streets</span>
+            </div>
+            <div class="layer-toggle-wrap">
+              <button class="speed-toggle" id="points-toggle"></button>
+              <span>Crash locations (🟡 bike 🔴 pedestrian)</span>
+            </div>
+            <div class="layer-toggle-wrap">
+              <button class="speed-toggle off" id="heatmap-toggle"></button>
+              <span>Crash heatmap</span>
+            </div>
+          </div>
+
+          <div class="map-sidebar-body">
+            <div id="lga-placeholder">
+              Click an LGA on the map to see crash statistics and email your
+              Mayor or Shire President.
+            </div>
+            <div id="lga-stats">
+              <div id="lga-name"></div>
+              <div id="lga-population"></div>
+              <div id="percentile-indicator"></div>
+              <div class="sidebar-section-label">
+                Crash statistics (2019–2023)
+              </div>
+              <div id="stat-rows"></div>
+
+              <div id="email-tool">
+                <h2>📬 Email your Mayor or Shire President</h2>
+                <p>
+                  Ask them to support safer streets — including a 30 km/h
+                  default speed limit on local streets across WA.
+                </p>
+                <select id="lga-select">
+                  <option value="">— Choose your LGA —</option>
+                </select>
+                <div class="preview-box" id="preview-box">
+                  <div class="preview-subject" id="preview-subject"></div>
+                  <div class="preview-body" id="preview-body"></div>
+                </div>
+                <div class="btn-row" id="email-actions" style="display: none">
+                  <a id="mailto-btn" class="email-btn-primary" href="#"
+                    >Open in mail app →</a
+                  >
+                  <button class="email-btn-secondary" id="copy-btn">
+                    Copy
+                  </button>
+                </div>
+                <p class="hint" id="email-hint" style="display: none">
+                  Replace [YOUR NAME] before sending.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="map-leaflet"></div>
+
+        <div id="legend">
+          <p>Layers</p>
+          <div class="legend-row">
+            <div class="legend-line" style="background: #22c55e"></div>
+            <span>30 km/h streets</span>
+          </div>
+          <div class="legend-row">
+            <div class="legend-line" style="background: #f59e0b"></div>
+            <span>40 km/h streets</span>
+          </div>
+          <div class="legend-row" style="margin-top: 6px">
+            <div class="legend-dot" style="background: var(--sun-yellow)"></div>
+            <span>Bike crash</span>
+          </div>
+          <div class="legend-row">
+            <div class="legend-dot" style="background: var(--racing-red)"></div>
+            <span>Pedestrian crash</span>
+          </div>
+          <div class="legend-row" style="margin-top: 6px">
+            <div
+              class="legend-poly"
+              style="
+                background: rgba(239, 156, 32, 0.25);
+                border: 2px solid var(--sun-yellow);
+              "
+            ></div>
+            <span>Selected LGA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ 6. CTA ════ -->
+    <section class="cta-section" id="act">
+      <h2 class="section-title">LET'S MAKE WA STREETS WORK FOR EVERYONE</h2>
+      <p>
+        Every action on this page is within the direct control of local
+        government. The majority require no state or federal funding. The
+        returns begin the moment the work is done: healthier residents, safer
+        streets, stronger local economies, and more liveable neighbourhoods.
+        Local governments can start this work today.
+      </p>
+      <a href="#map" class="btn btn-primary"
+        >Email your Mayor or Shire President ↑</a
+      >
+    </section>
+
+    <!-- ════ 7. REFERENCES ════ -->
+    <section class="references-section">
+      <div class="section-wrap">
+        <h3>References</h3>
+        <ol>
+          <li>
+            The Guardian (2026).
+            <a
+              href="https://www.theguardian.com/australia-news/2026/jan/02/australia-2025-road-toll-deaths-fatalities-rise-nationwide"
+              target="_blank"
+              >Australia 2025 road toll: deaths and fatalities rise
+              nationwide</a
+            >
+          </li>
+          <li>
+            The Conversation (2024).
+            <a
+              href="https://theconversation.com/hundreds-of-cities-have-achieved-zero-road-deaths-in-a-year-heres-how-they-did-it-229127"
+              target="_blank"
+              >Hundreds of cities have achieved zero road deaths in a year —
+              here's how they did it</a
+            >
+          </li>
+          <li>
+            Streets Alive Yarra.
+            <a href="https://streets-alive-yarra.org/freedom/" target="_blank"
+              >Freedom to move: who can't drive?</a
+            >
+          </li>
+          <li>
+            Healthy Active by Design.
+            <a
+              href="https://www.healthyactivebydesign.com.au/design-features/sense-of-place/evidence"
+              target="_blank"
+              >Sense of place — evidence base</a
+            >
+          </li>
+          <li>
+            Jurewicz, C. et al. (2024).
+            <a
+              href="https://www.sciencedirect.com/science/article/abs/pii/S002243752400152X"
+              target="_blank"
+              >Speed and crash risk — updated review</a
+            >. <em>Journal of Safety Research</em>
+          </li>
+          <li>
+            Better Streets (2025).
+            <a
+              href="https://www.betterstreets.org.au/safe-speeds-position-paper"
+              target="_blank"
+              >Safe Speeds position paper</a
+            >
+          </li>
+          <li>
+            Better Streets.
+            <a
+              href="https://www.betterstreets.org.au/whats-happening/who-sets-the-speed-limit"
+              target="_blank"
+              >Who sets the speed limit?</a
+            >
+          </li>
+          <li>
+            CWANZ (2022).
+            <a
+              href="https://www.cwanz.com.au/wp-content/uploads/2022/04/CWANZ-ROAD-SAFETY-FACTSHEET-WITH-REFERENCES.pdf"
+              target="_blank"
+              >Road Safety Factsheet</a
+            >
+            — WA default speed limit reduction
+          </li>
+          <li>
+            Yannis, G. &amp; Michelaraki, E. (2024).
+            <a href="https://doi.org/10.3390/su16114382" target="_blank"
+              >Systematic review of 30 km/h speed limits in European cities</a
+            >. <em>Sustainability</em>, 16(11)
+          </li>
+          <li>
+            Bornioli, A. et al. (2020).
+            <a
+              href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7027024/"
+              target="_blank"
+              >Impact of 20 mph speed limits on road injuries in Bristol</a
+            >. <em>J Epidemiology &amp; Community Health</em>
+          </li>
+          <li>
+            Wales Online (2026).
+            <a
+              href="https://www.walesonline.co.uk/news/wales-news/its-exactly-two-years-20mph-32477854"
+              target="_blank"
+              >25% reduction in KSI within 18 months of 20 mph implementation</a
+            >
+          </li>
+          <li>
+            Aldred, R. et al. (2023).
+            <a
+              href="https://www.sciencedirect.com/science/article/pii/S2214140523000944"
+              target="_blank"
+              >Evaluating the impact of Low Traffic Neighbourhoods</a
+            >. <em>Journal of Transport &amp; Health</em>
+          </li>
+          <li>
+            NACTO / PeopleForBikes (2016).
+            <a
+              href="https://nacto.org/wp-content/uploads/2016PeoplefoBikes_Quick-Builds-for-Better-Streets.pdf"
+              target="_blank"
+              >Quick Builds for Better Streets</a
+            >
+          </li>
+          <li>
+            NACTO.
+            <a
+              href="https://nacto.org/publication/urban-street-design-guide/intersection-design-elements/corner-radii/"
+              target="_blank"
+              >Urban Street Design Guide — Corner Radii</a
+            >
+          </li>
+          <li>
+            Austroads.
+            <a
+              href="https://austroads.gov.au/publications/traffic-management/agtm08"
+              target="_blank"
+              >Guide to Traffic Management Part 8: Local Street Management</a
+            >
+          </li>
+          <li>
+            Austroads.
+            <a
+              href="https://austroads.gov.au/publications/active-travel/ap-r711-24"
+              target="_blank"
+              >Prioritising Active Transport (AP-R711-24)</a
+            >
+          </li>
+          <li>
+            NSW Government.
+            <a
+              href="https://www.movementandplace.nsw.gov.au/standards/design-solutions/modal-filters"
+              target="_blank"
+              >Movement and Place — Modal Filters</a
+            >
+          </li>
+          <li>
+            City of Sydney.
+            <a
+              href="https://www.cityofsydney.nsw.gov.au/building-new-infrastructure/creating-pop-up-cycleways-in-sydney"
+              target="_blank"
+              >Pop-up cycleway program</a
+            >
+          </li>
+          <li>
+            City of Yarra.
+            <a
+              href="https://www.yarracity.vic.gov.au/about-us/news-and-media/pop-bike-lanes-to-become-permanent-following-successful-trial"
+              target="_blank"
+              >Pop-up bike lanes — made permanent</a
+            >
+          </li>
+          <li>
+            City of Campbelltown SA.
+            <a
+              href="https://www.campbelltown.sa.gov.au/community/grants/e-bike-and-cargo-bike-rebates"
+              target="_blank"
+              >E-bike and cargo bike rebate program</a
+            >
+          </li>
+          <li>
+            Bicycle Network.
+            <a
+              href="https://bicyclenetwork.com.au/newsroom/2024/02/15/local-advocates-bring-e-bike-rebates-to-life-in-adelaide/"
+              target="_blank"
+              >Local advocates bring e-bike rebates to life in Adelaide</a
+            >
+          </li>
+          <li>
+            Lucy Saunders.
+            <a href="https://www.healthystreets.com" target="_blank"
+              >The 10 Healthy Streets Indicators</a
+            >
+          </li>
+        </ol>
+        <p class="data-source">
+          Crash data: Main Roads Western Australia, 5-year crash data 2019–2023.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div>
+        <strong class="footer-brand"
+          ><span class="brand-west">WEST</span
+          ><span class="brand-cycle">CYCLE</span></strong
+        >
+        <br />Western Australia's peak body for bike riding and eRideables.
+        <br />105 Cambridge St, West Leederville WA 6007
+      </div>
+      <div>
+        <a href="https://www.westcycle.org.au">westcycle.org.au</a> ·
+        <a href="https://www.westcycle.org.au/contact">Contact</a>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+    <script src="js/councils.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/email.js"></script>
+    <script src="js/nav.js"></script>
+  </body>
+</html>
